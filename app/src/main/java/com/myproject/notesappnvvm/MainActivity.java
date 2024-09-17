@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,10 @@ import com.google.android.material.navigation.NavigationView;
 import com.myproject.notesappnvvm.Activity.InsertTaskActivity;
 import com.myproject.notesappnvvm.Activity.LoginActivity;
 import com.myproject.notesappnvvm.Adapter.TaskRecyclerViewAdapter;
+import com.myproject.notesappnvvm.Model.Beans.Task;
 import com.myproject.notesappnvvm.ViewModel.TaskViewModel;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    View emptyStateLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
         toolbar = findViewById(R.id.toolbar_layout);
         setSupportActionBar(toolbar);
+        emptyStateLayout = findViewById(R.id.empty_state_layout);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
@@ -88,7 +94,17 @@ public class MainActivity extends AppCompatActivity {
             recyclerTaskList.setLayoutManager(new LinearLayoutManager(this));
             adapter = new TaskRecyclerViewAdapter(MainActivity.this, tasks);
             recyclerTaskList.setAdapter(adapter);
+            checkIfEmpty((ArrayList<Task>) tasks);
         });
-
     }
+        public void checkIfEmpty(ArrayList<Task> items) {
+            if (items.isEmpty()) {
+                recyclerTaskList.setVisibility(View.GONE);
+                emptyStateLayout.setVisibility(View.VISIBLE);
+            } else {
+                recyclerTaskList.setVisibility(View.VISIBLE);
+                emptyStateLayout.setVisibility(View.GONE);
+            }
+        }
+
 }
