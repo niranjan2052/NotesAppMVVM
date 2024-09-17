@@ -6,7 +6,9 @@
     <string name="password_btn_hint">Enter Password</string>
     <string name="chk_remember_me_text">Remember Me</string>
     <string name="login_btn_text">Log In</string>
+    <string name="signup_btn_text">Sign Up</string>
     <string name="loginToSignUpLink">Not yet registered? Sign Up</string>
+    <string name="signUpToLoginLink">Already Registered? Log In</string>
     <string name="statusText">Is Completed</string>
     <string name="default_date">JAN 01 2025</string>
 </resources>

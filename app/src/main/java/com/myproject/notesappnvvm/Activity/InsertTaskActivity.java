@@ -2,6 +2,7 @@ package com.myproject.notesappnvvm.Activity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.myproject.notesappnvvm.Helper.HelperClass;
+import com.myproject.notesappnvvm.MainActivity;
 import com.myproject.notesappnvvm.Model.Beans.Task;
 import com.myproject.notesappnvvm.ViewModel.TaskViewModel;
 import com.myproject.notesappnvvm.databinding.ActivityInsertTaskBinding;
@@ -45,6 +47,8 @@ public class InsertTaskActivity extends AppCompatActivity {
             dueDate = HelperClass.StringToDate(binding.btnDueDatePicker.getText().toString());
             isCompleted = binding.chkStatusBox.isChecked();
             CreateTask(title, description, dueDate, isCompleted);
+            startActivity(new Intent(InsertTaskActivity.this, MainActivity.class));
+            finish();
         });
     }
 
