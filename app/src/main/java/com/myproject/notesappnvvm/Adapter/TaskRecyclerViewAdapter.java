@@ -2,6 +2,7 @@ package com.myproject.notesappnvvm.Adapter;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.myproject.notesappnvvm.Activity.UpdateTaskActivity;
 import com.myproject.notesappnvvm.Helper.HelperClass;
 import com.myproject.notesappnvvm.MainActivity;
 import com.myproject.notesappnvvm.Model.Beans.Task;
@@ -46,6 +48,18 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
         holder.txtTitle.setText(task.getTitle());
         holder.dueDate.setText(HelperClass.DateToString(task.getDueDate()));
         holder.daysLeft.setText(String.format("%s Days left", daysDifference));
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(mainActivity, UpdateTaskActivity.class);
+
+            intent.putExtra("id", task.getId());
+            intent.putExtra("title", task.getTitle());
+            intent.putExtra("description", task.getDescription());
+            intent.putExtra("dueDate", task.getDueDate());
+            intent.putExtra("isCompleted", task.isCompleted());
+
+            mainActivity.startActivity(intent);
+        });
 
 
         holder.LLTaskRow.setOnLongClickListener(new View.OnLongClickListener() {

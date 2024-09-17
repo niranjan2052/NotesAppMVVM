@@ -101,7 +101,7 @@ public class HelperClass {
         if (month == 8)
             return "AUG";
         if (month == 9)
-            return "SEPT";
+            return "SEP";
         if (month == 10)
             return "OCT";
         if (month == 11)

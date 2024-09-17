@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.myproject.notesappnvvm.Helper.HelperClass;
 import com.myproject.notesappnvvm.MainActivity;
 import com.myproject.notesappnvvm.Model.Beans.Task;
+import com.myproject.notesappnvvm.Repository.TaskRepository;
 import com.myproject.notesappnvvm.ViewModel.TaskViewModel;
 import com.myproject.notesappnvvm.databinding.ActivityInsertTaskBinding;
 
@@ -26,6 +27,7 @@ public class InsertTaskActivity extends AppCompatActivity {
     Date dueDate;
     boolean isCompleted;
     DatePickerDialog datePickerDialog;
+    TaskRepository taskRepository;
 
     TaskViewModel taskViewModel;
 
@@ -35,10 +37,12 @@ public class InsertTaskActivity extends AppCompatActivity {
         binding = ActivityInsertTaskBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
+//        taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
+        taskRepository = new TaskRepository(this.getApplication());
 //        HelperClass.initDatePicker(this, datePickerDialog, binding.btnDueDatePicker);
         initDatePicker();
 
+        binding.btnDueDatePicker.setText(HelperClass.DateToString(new Date()));
         binding.btnDueDatePicker.setOnClickListener(this::openDatePicker);
 
         binding.btnTaskAddAction.setOnClickListener(view -> {
@@ -56,7 +60,7 @@ public class InsertTaskActivity extends AppCompatActivity {
         if (title.isEmpty() || description.isEmpty()) {
             Toast.makeText(this, "Please Fill all fields", Toast.LENGTH_SHORT).show();
         } else {
-            taskViewModel.insertTask(new Task(title, description, dueDate, isCompleted));
+            taskRepository.insertTask(new Task(title, description, dueDate, isCompleted));
         }
     }
 
