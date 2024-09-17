@@ -13,13 +13,13 @@
         android:theme="@style/Theme.NotesAppNVVM"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.UpdateTaskActivity"
+            android:name=".View.Activity.UpdateTaskActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.SignUpActivity"
+            android:name=".View.Activity.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.LoginActivity"
+            android:name=".View.Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,13 +28,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.InsertTaskActivity"
+            android:name=".View.Activity.InsertTaskActivity"
             android:exported="false" />
         <activity
-            android:name=".View.SplashActivity"
+            android:name=".View.Activity.SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".View.Activity.MainActivity"
             android:exported="true" />
     </application>
 

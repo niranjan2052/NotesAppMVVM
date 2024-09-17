@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:gravity="center"
-    tools:context=".Activity.InsertTaskActivity">
+    tools:context=".View.Activity.InsertTaskActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

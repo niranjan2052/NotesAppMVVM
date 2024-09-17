@@ -1,4 +1,4 @@
-package com.myproject.notesappnvvm;
+package com.myproject.notesappnvvm.View.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,9 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.myproject.notesappnvvm.Activity.InsertTaskActivity;
-import com.myproject.notesappnvvm.Activity.LoginActivity;
-import com.myproject.notesappnvvm.Adapter.TaskRecyclerViewAdapter;
+import com.myproject.notesappnvvm.R;
+import com.myproject.notesappnvvm.View.Adapter.TaskRecyclerViewAdapter;
 import com.myproject.notesappnvvm.Model.Beans.Task;
 import com.myproject.notesappnvvm.ViewModel.TaskViewModel;
 

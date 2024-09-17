@@ -1,26 +1,16 @@
-package com.myproject.notesappnvvm.Activity;
+package com.myproject.notesappnvvm.View.Activity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.myproject.notesappnvvm.Helper.HelperClass;
-import com.myproject.notesappnvvm.MainActivity;
 import com.myproject.notesappnvvm.Model.Beans.Task;
-import com.myproject.notesappnvvm.R;
 import com.myproject.notesappnvvm.Repository.TaskRepository;
-import com.myproject.notesappnvvm.ViewModel.TaskViewModel;
 import com.myproject.notesappnvvm.databinding.ActivityUpdateNotesBinding;
 
 import java.util.Calendar;

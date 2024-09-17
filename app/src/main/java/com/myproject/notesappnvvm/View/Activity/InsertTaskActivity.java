@@ -1,17 +1,14 @@
-package com.myproject.notesappnvvm.Activity;
+package com.myproject.notesappnvvm.View.Activity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.myproject.notesappnvvm.Helper.HelperClass;
-import com.myproject.notesappnvvm.MainActivity;
 import com.myproject.notesappnvvm.Model.Beans.Task;
 import com.myproject.notesappnvvm.Repository.TaskRepository;
 import com.myproject.notesappnvvm.ViewModel.TaskViewModel;

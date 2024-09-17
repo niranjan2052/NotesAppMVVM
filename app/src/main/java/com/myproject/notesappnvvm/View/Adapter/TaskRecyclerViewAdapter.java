@@ -1,4 +1,4 @@
-package com.myproject.notesappnvvm.Adapter;
+package com.myproject.notesappnvvm.View.Adapter;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,9 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.myproject.notesappnvvm.Activity.UpdateTaskActivity;
+import com.myproject.notesappnvvm.View.Activity.UpdateTaskActivity;
 import com.myproject.notesappnvvm.Helper.HelperClass;
-import com.myproject.notesappnvvm.MainActivity;
+import com.myproject.notesappnvvm.View.Activity.MainActivity;
 import com.myproject.notesappnvvm.Model.Beans.Task;
 import com.myproject.notesappnvvm.R;
 import com.myproject.notesappnvvm.ViewModel.TaskViewModel;

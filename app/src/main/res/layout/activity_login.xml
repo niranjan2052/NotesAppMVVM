@@ -9,7 +9,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".Activity.LoginActivity">
+    tools:context=".View.Activity.LoginActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
