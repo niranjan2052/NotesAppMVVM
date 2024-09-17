@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     CheckBox chkLoggedIn;
     Button loginButton;
+    TextView loginToSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.userPassword);
         chkLoggedIn = findViewById(R.id.chkLoggedIn);
         loginButton = findViewById(R.id.loginBtn);
+        loginToSignUp = findViewById(R.id.signUpLink);
 
         Intent iHome = new Intent(LoginActivity.this, MainActivity.class);
 
@@ -38,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(iHome);
             finish();
         }
+
+        loginToSignUp.setOnClickListener(view -> {
+            startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+        });
 
         loginButton.setOnClickListener(view -> {
             if (!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {

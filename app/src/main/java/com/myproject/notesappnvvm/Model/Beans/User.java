@@ -14,7 +14,7 @@ public class User {
     private String email;
     @ColumnInfo(name = "password")
     private String password;
-    @ColumnInfo(name = "isActive")
+    @ColumnInfo(name = "isActive",defaultValue = "true")
     private boolean isActive;
 
 

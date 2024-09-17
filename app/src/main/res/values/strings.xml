@@ -4,6 +4,7 @@
     <string name="action_btn_description">Open add item on clicking on action btn</string>
     <string name="username_btn_hint">Enter Username</string>
     <string name="password_btn_hint">Enter Password</string>
+    <string name="email_btn_hint">Enter Email</string>
     <string name="chk_remember_me_text">Remember Me</string>
     <string name="login_btn_text">Log In</string>
     <string name="signup_btn_text">Sign Up</string>

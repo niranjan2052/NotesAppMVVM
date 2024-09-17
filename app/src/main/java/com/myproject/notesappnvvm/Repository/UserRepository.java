@@ -11,6 +11,7 @@ import com.myproject.notesappnvvm.Model.Database.AppDatabase;
 import java.util.List;
 
 public class UserRepository {
+
     public UserDao userDao;
     public LiveData<List<User>> getAllUsers;
 
@@ -21,14 +22,14 @@ public class UserRepository {
     }
 
     public void insertUser(User user) {
-        userDao.insertUsers(user);
+        new Thread(() -> userDao.insertUsers(user)).start();
     }
 
     public void deleteUser(int id) {
-        userDao.deleteUser(id);
+        new Thread(() -> userDao.deleteUser(id)).start();
     }
 
     public void updateUser(User user) {
-        userDao.updateUser(user);
+        new Thread(() -> userDao.updateUser(user)).start();
     }
 }

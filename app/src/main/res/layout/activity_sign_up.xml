@@ -37,7 +37,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtSignUpUserName"
+                android:id="@+id/edtSignUpUsername"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -45,6 +45,20 @@
                 android:drawableStart="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
                 android:hint="@string/username_btn_hint"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/themeBlueColor" />
+
+            <EditText
+                android:id="@+id/edtSignupUserEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableStart="@drawable/baseline_mail_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/email_btn_hint"
+                android:inputType="textEmailAddress"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/themeBlueColor" />
