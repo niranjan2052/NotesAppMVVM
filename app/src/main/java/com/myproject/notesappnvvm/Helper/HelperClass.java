@@ -4,11 +4,9 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-
-import androidx.room.TypeConverter;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,6 +29,21 @@ public class HelperClass {
             return dateFormat.format(date);
         } catch (Exception e) {
             Log.e("Exception", "DateToString" + e);
+        }
+        return null;
+    }
+
+    public static String DaysDifference(Date currentDate, Date dueDate) {
+        try {
+
+            long date1 = currentDate.getTime();
+            long date2 = dueDate.getTime();
+            long difference = Math.abs(date1 - date2);
+            long differenceDate = difference / (24 * 60 * 60 * 1000);
+            return Long.toString(differenceDate);
+        } catch (
+                Exception exception) {
+            Log.e("Error", "instance initializer: " + exception);
         }
         return null;
     }
