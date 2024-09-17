@@ -51,7 +51,6 @@ public class InsertTaskActivity extends AppCompatActivity {
             dueDate = HelperClass.StringToDate(binding.btnDueDatePicker.getText().toString());
             isCompleted = binding.chkStatusBox.isChecked();
             CreateTask(title, description, dueDate, isCompleted);
-            startActivity(new Intent(InsertTaskActivity.this, MainActivity.class));
             finish();
         });
     }
