@@ -1,6 +1,7 @@
 package com.myproject.notesappnvvm.Repository;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -9,6 +10,7 @@ import com.myproject.notesappnvvm.Model.Dao.UserDao;
 import com.myproject.notesappnvvm.Model.Database.AppDatabase;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class UserRepository {
 
@@ -31,5 +33,13 @@ public class UserRepository {
 
     public void updateUser(User user) {
         new Thread(() -> userDao.updateUser(user)).start();
+    }
+
+    public boolean isTaken(String username) {
+        return userDao.is_taken(username);
+    }
+
+    public boolean login(String username, String password) {
+        return userDao.login(username, password);
     }
 }

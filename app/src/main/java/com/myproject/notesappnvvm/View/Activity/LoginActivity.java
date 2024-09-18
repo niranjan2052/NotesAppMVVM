@@ -11,8 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.myproject.notesappnvvm.R;
+import com.myproject.notesappnvvm.ViewModel.UserViewModel;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox chkLoggedIn;
     Button loginButton;
     TextView loginToSignUp;
+    UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         chkLoggedIn = findViewById(R.id.chkLoggedIn);
         loginButton = findViewById(R.id.loginBtn);
         loginToSignUp = findViewById(R.id.signUpLink);
+
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
         Intent iHome = new Intent(LoginActivity.this, MainActivity.class);
 
@@ -49,6 +54,9 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(view -> {
             if (!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
                 if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+                    startActivity(iHome);
+                    finish();
+                } else if (userViewModel.allow_login(username.getText().toString(), password.getText().toString())) {
                     startActivity(iHome);
                     finish();
                 } else {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,6 @@ import com.myproject.notesappnvvm.databinding.ActivitySignUpBinding;
 public class SignUpActivity extends AppCompatActivity {
 
     ActivitySignUpBinding binding;
-    //    UserRepository userRepository;
     UserViewModel userViewModel;
     String username, password, email;
 
@@ -32,7 +32,6 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        userRepository = new UserRepository(this.getApplication());
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
         binding.loginLink.setOnClickListener(view -> {
@@ -44,13 +43,17 @@ public class SignUpActivity extends AppCompatActivity {
             password = binding.edtSignupUserPassword.getText().toString();
             email = binding.edtSignupUserEmail.getText().toString();
             createUser(username, email, password);
-            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
-            finish();
         });
     }
 
     public void createUser(String username, String email, String password) {
-        Log.d("UserInfo", "onCreate: username: " + username + " email: " + email + " password: " + password);
-        userViewModel.insertUser(new User(username, email, password, true));
+//        Log.d("UserInfo", "onCreate: username: " + username + " email: " + email + " password: " + password);
+        if (!userViewModel.username_taken(username)) {
+            userViewModel.insertUser(new User(username, email, password, true));
+            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+            finish();
+        } else {
+            Toast.makeText(this, "Username Taken", Toast.LENGTH_SHORT).show();
+        }
     }
 }

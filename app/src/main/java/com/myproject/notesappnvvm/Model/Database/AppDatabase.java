@@ -24,6 +24,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "App_Database")
+                        .allowMainThreadQueries()
                         .fallbackToDestructiveMigration()
                         .build();
             }

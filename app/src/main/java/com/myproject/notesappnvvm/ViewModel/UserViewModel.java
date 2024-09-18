@@ -32,4 +32,12 @@ public class UserViewModel extends AndroidViewModel {
     public void updateUser(User user) {
         userRepository.updateUser(user);
     }
+
+    public boolean username_taken(String username) {
+        return userRepository.isTaken(username);
+    }
+
+    public boolean allow_login(String username, String password) {
+        return userRepository.login(username, password);
+    }
 }
